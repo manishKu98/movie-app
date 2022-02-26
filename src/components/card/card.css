@@ -1,0 +1,27 @@
+.box{
+    /* height: 16rem;
+    width: 11rem; */
+    cursor: pointer;
+    margin: 2px;
+    text-align: center;
+    box-shadow: 0px 0px 10px -5px red;
+    border: 1px solid red;
+    border-radius: 1rem;
+}
+.movie-title{
+    font-size: xx-small;
+    margin: 2px 0 0 0;
+    color: white;
+}
+.image-size{
+    margin-top: 0.2rem;
+    /* height: 14rem;
+    width: 10rem; */
+    border-radius: 1rem;
+    box-shadow: 1px 2px 10px rgb(255, 0, 0) ;
+}
+.image-size:hover{
+    /* height: 14.2rem;
+    width: 10.2rem; */
+    transition: ease-in-out;
+}

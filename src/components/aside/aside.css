@@ -1,0 +1,29 @@
+.aside{
+    background-color: aquamarine;
+    /* background-color: rgb(7, 215, 243); */
+    /* background-color: rgb(0, 225, 255); */
+    /* background-color: black; */
+    /* color: white; */
+    /* height: 89vh; */
+    margin-top: 62px;
+    /* max-width: 24vw; */
+    margin-right: 0.5rem;
+}
+.heading {
+    margin: 1px;
+    text-align: center;
+}
+.para {
+    margin: 5px;
+    max-width: 400px;
+    text-align: center;
+}
+.card-container {
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: scroll;
+    background-color: black;
+}
