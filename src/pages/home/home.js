@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import getMovies from '../../helper';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
+import CustomCard from '../../components/newCard';
 import { IMG_URL } from '../../helper/constant';
-import Poster from '../card';
+import getMovies from '../../helper';
+import AppLayout from '../../layout/appLayout';
 
-import './main.css';
-
-function Main() {
+export default function Album() {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [search] = useSearchParams();
@@ -34,22 +36,23 @@ function Main() {
   }
   const paramsTitle = search.get('title') || '';
   return (
-    <div className="main">
-      <div className="poster-container">
+    <AppLayout>
+      <Grid container spacing={4}>
         {
                 data
                   .filter((d) => d.title.toLowerCase().includes(paramsTitle?.toLowerCase()))
                   .map((arg) => {
-                    const { title, poster_path, id } = arg;
-                    return <Poster type="movie" key={id} id={id} title={title} imgUrl={`${IMG_URL}${poster_path}`} />;
+                    const {
+                      title, poster_path, id, overview,
+                    } = arg;
+                    return <CustomCard type="movie" overview={overview} key={id} id={id} title={title} imgUrl={`${IMG_URL}${poster_path}`} />;
                   })
             }
-      </div>
-      <div className="btns">
-        <button type="button" className="prev btn" onClick={prev}>Prev</button>
-        <button type="button" className="next btn" onClick={next}>Next</button>
-      </div>
-    </div>
+      </Grid>
+      <Box component="div" sx={{ p: 2, 'text-align': 'center' }}>
+        <Button onClick={() => prev()}>Prev</Button>
+        <Button onClick={() => next()}>Next</Button>
+      </Box>
+    </AppLayout>
   );
 }
-export default Main;

@@ -1,5 +1,5 @@
 import {
-  API_URL, BASE_URL, API_KEY, API_URL_TV_SHOW,
+  API_URL, BASE_URL, API_KEY, UPCOMING_MOVIE_URL,
 } from './constant';
 
 async function getMovies(page) {
@@ -24,21 +24,17 @@ async function getMovieDetail(id) {
   return null;
 }
 
-async function getTvShows(page) {
+async function getUpcomingMovie() {
   try {
-    const res = await fetch(`${API_URL_TV_SHOW}&page=${page}`);
-    const tvShow = await res.json();
-    return tvShow;
+    const res = await fetch(UPCOMING_MOVIE_URL);
+    return res.json();
   } catch (err) {
     console.log(err);
   }
   return null;
 }
 
-async function getTvShowDetail(id) {
-  const res = await fetch(`${BASE_URL}/tv/${id}?${API_KEY}&append_to_response=credits`);
-  return res.json();
-}
-
 export default getMovies;
-export { getMovieDetail, getTvShows, getTvShowDetail };
+export {
+  getMovieDetail, getUpcomingMovie,
+};
